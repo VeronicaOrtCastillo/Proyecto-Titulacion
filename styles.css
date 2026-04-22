@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+/* BLOQUES */
+.bloque {
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* SUBTÍTULOS */
+h2 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* CARRUSEL */
+.carrusel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GALERÍA */
+.galeria {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px; /* limita tamaño */
+    justify-content: center;
+}
+
+/* IMÁGENES */
+.galeria img {
+    display: none;
+    max-width: 100%;
+    max-height: 400px; /* límite visual */
+    object-fit: contain; /* NO deforma */
+    border-radius: 10px;
+}
+
+/* IMAGEN ACTIVA */
+.galeria img.activa {
+    display: block;
+}
+
+/* EFECTO HOVER */
+.galeria img:hover {
+    transform: scale(1.02);
+}
+
+/* BOTONES */
+button {
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* POSICIÓN BOTONES */
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* HOVER BOTONES */
+button:hover {
+    background: black;
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
