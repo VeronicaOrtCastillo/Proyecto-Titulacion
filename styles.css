@@ -1,34 +1,103 @@
+/* RESET BÁSICO */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* BODY GENERAL */
 body {
     font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 30px;
-    background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    padding: 20px;
+}
+
+/* HEADER SUPERIOR */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
 }
 
 /* TÍTULO */
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
+header h1 {
     font-size: 2.5rem;
 }
 
-/* BLOQUES */
+/* SUBTEXTO */
+header p {
+    opacity: 0.9;
+}
+
+/* PÁRRAFOS */
+p {
+    font-size: 15px;
+    line-height: 1.6; /* mejora lectura */
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* LISTAS */
+.lista-info {
+    list-style: none; /* quitamos viñetas normales */
+    padding-left: 0;
+}
+
+/* CADA ELEMENTO */
+.lista-info li {
+    background: #f4f6fb;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 10px;
+
+    /* efecto visual */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+
+    /* animación */
+    transition: 0.3s;
+}
+
+/* HOVER BONITO */
+.lista-info li:hover {
+    transform: translateX(5px);
+    background: #e8ecff;
+}
+
+/* TEXTO RESALTADO */
+.lista-info strong {
+    color: #667eea;
+}
+
+/* CONTENEDOR PRINCIPAL */
+main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* TARJETAS */
 .bloque {
-    background: white;
+    background: rgba(255, 255, 255, 0.9); /* efecto glass */
+    backdrop-filter: blur(10px); /* desenfoque */
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+    /* sombra elegante */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    /* animación al aparecer */
+    transition: transform 0.3s;
+}
+
+/* EFECTO HOVER */
+.bloque:hover {
+    transform: translateY(-5px);
 }
 
 /* SUBTÍTULOS */
 h2 {
     margin-bottom: 15px;
-    font-size: 1.4rem;
 }
 
 /* CARRUSEL */
@@ -39,69 +108,98 @@ h2 {
     align-items: center;
 }
 
-/* GALERÍA */
 .galeria {
-    display: flex;
-    overflow: hidden;
     width: 100%;
-    max-width: 600px; /* limita tamaño */
+    max-width: 600px;
+
+    /*altura fija del carrusel */
+    height: 350px;
+
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* IMÁGENES */
+/* TODAS LAS IMÁGENES */
 .galeria img {
-    display: none;
-    max-width: 100%;
-    max-height: 400px; /* límite visual */
-    object-fit: contain; /* NO deforma */
+    width: 100%;
+    height: 100%;
+
+    /*CLAVE: recorta sin deformar */
+    object-fit: contain;
+    background: #000;
     border-radius: 10px;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-/* IMAGEN ACTIVA */
+/* ACTIVA */
 .galeria img.activa {
     display: block;
-}
-
-/* EFECTO HOVER */
-.galeria img:hover {
-    transform: scale(1.02);
+    opacity: 1;
 }
 
 /* BOTONES */
 button {
     position: absolute;
     background: rgba(0,0,0,0.6);
-    color: white;
     border: none;
-    padding: 12px 15px;
+    color: white;
+    padding: 10px;
+    border-radius: 20%;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 18px;
+    z-index: 10; /* asegura que estén encima de las imágenes */
     transition: 0.3s;
 }
 
-/* POSICIÓN BOTONES */
-.prev {
-    left: 10px;
-}
+/* POSICIÓN */
+.prev { 
+    left: 10px; 
 
-.next {
-    right: 10px;
+}
+.next { 
+    right: 10px; 
 }
 
 /* HOVER BOTONES */
 button:hover {
     background: black;
-    transform: scale(1.1);
+    transform: scale(1.2);
+}
+
+/* INDICADORES (puntitos) */
+.indicadores {
+    position: absolute;
+    bottom: 2px;
+    display: flex;
+    gap: 4px;
+}
+
+/* CADA PUNTO */
+.indicadores span {
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ACTIVO */
+.indicadores span.activo {
+    opacity: 1;
+    background: #10808f;
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-    h1 {
+    header h1 {
         font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
     }
 }
